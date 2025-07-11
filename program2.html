@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aquarium Store - Product Order</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e0f2f1;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      background: white;
+      max-width: 450px;
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    h2 {
+      color: #00796b;
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+      color: #004d40;
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      font-size: 1rem;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+    .upi-info {
+      display: none;
+      color: #333;
+      margin-bottom: 15px;
+      background-color: #f0f0f0;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .total {
+      font-weight: bold;
+      color: #004d40;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+    button {
+      background-color: #00796b;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #004d40;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>YOUR PRODUCT IS ORDERED</h2>
+    <form id="customerForm">
+      <label for="customerName">Customer Name:</label>
+      <input type="text" id="customerName" name="customerName" placeholder="Enter your name" required />
+
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" placeholder="Enter your address" required />
+
+      <label for="contact">Contact:</label>
+      <input type="text" id="contact" name="contact" placeholder="Enter your contact number" required />
+
+      <label for="product">Product:</label>
+      <select id="product" name="product" required>
+        <option value="" disabled selected>-- Select Product --</option>
+        <option value="Glass Aquarium" data-price="49.99">Glass Aquarium - ₹49.99</option>
+        <option value="Betta Starter Kit" data-price="290.99">Betta Starter Kit - ₹290.99</option>
+        <option value="LED Moonlight Strip" data-price="300.99">LED Moonlight Strip - ₹300.99</option>
+        <option value="Aquarium Filter" data-price="350.99">Aquarium Filter - ₹350.99</option>
+        <option value="Shrimp Filter" data-price="240.99">Shrimp Filter - ₹240.99</option>
+        <option value="Golden Fish" data-price="200.99">Golden Fish - ₹200.99</option>
+      </select>
+
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" value="1" min="1" required />
+
+      <label for="unitPrice">Unit Price:</label>
+      <input type="text" id="unitPrice" value="0.00" readonly />
+
+      <div class="total">
+        Total Price: ₹<span id="totalPrice">0.00</span>
+      </div>
+
+      <label for="deliveryType">Delivery Type:</label>
+      <select id="deliveryType" name="deliveryType" required>
+        <option value="">-- Select Delivery Option --</option>
+        <option value="cod">Cash on Delivery</option>
+        <option value="upi">UPI Payment</option>
+      </select>
+
+      <div id="upiDetails" class="upi-info">
+        <strong>UPI ID:</strong> aquarium@upi<br>
+        Please complete your payment using this UPI ID before delivery.
+      </div>
+ <button class="submit" onclick=" location.href='program3.html'"> confirm order </button>
+     
+    </form>
+  </div>
+
+  <script>
+    const productSelect = document.getElementById('product');
+    const unitPriceInput = document.getElementById('unitPrice');
+    const quantityInput = document.getElementById('quantity');
+    const totalPriceSpan = document.getElementById('totalPrice');
+    const deliveryType = document.getElementById('deliveryType');
+    const upiDetails = document.getElementById('upiDetails');
+
+    let unitPrice = 0;
+
+    function updateTotal() {
+      const quantity = parseInt(quantityInput.value) || 1;
+      const total = (unitPrice * quantity).toFixed(2);
+      totalPriceSpan.textContent = total;
+    }
+
+    productSelect.addEventListener('change', () => {
+      const selectedOption = productSelect.options[productSelect.selectedIndex];
+      unitPrice = parseFloat(selectedOption.dataset.price);
+      unitPriceInput.value = unitPrice.toFixed(2);
+      updateTotal();
+    });
+
+    quantityInput.addEventListener('input', updateTotal);
+
+    deliveryType.addEventListener('change', () => {
+      upiDetails.style.display = deliveryType.value === 'upi' ? 'block' : 'none';
+    });
+
+    document.getElementById('customerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('customerName').value.trim();
+      const address = document.getElementById('address').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      const product = productSelect.value;
+      const quantity = quantityInput.value;
+      const total = totalPriceSpan.textContent;
+      const delivery = deliveryType.value;
+
+    
+    });
+  </script>
+
+</body>
+</html>

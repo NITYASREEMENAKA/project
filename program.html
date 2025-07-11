@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquarium</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: wheat;
+            color: black;
+            margin: 0;
+        }
+
+        header {
+            background-color: lightskyblue;
+           font-style: oblique;
+            font-weight: bolder;
+            color: darkblue;
+            text-align: center;
+            padding: 20px 0;
+        }
+         h2 {
+            color: black ;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: black;
+        }
+
+        .fish-list {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .fish-item {
+            background-color: lightsalmon;
+            border: 2px solid orange;
+            border-radius: 34px;
+            width: 300px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .fish-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 84px;
+        }
+        .price{
+            color: rgb(19, 38, 97);
+            font-weight: bolder;
+            
+        }
+        .add-to-cart-btn {
+      margin-top: 10px;
+      padding: 7px 15px;
+      font-size: 1rem;
+  background-color: #00796b;
+      border-radius: 4px;
+      border: 1px;
+      color: white;
+       }
+    .fish-item:hover{
+        transform:scale(1.04) ;
+ }
+.add-to-cart-btn:hover,
+.add-to-cart-btn:focus {
+  background-color: #004d40;
+  transform: scale(1.05);
+}
+nav ul li a:hover,
+nav ul li a:focus {
+  background-color: #004d40;  
+  transform: scale(1.05);      
+  outline: none;
+}
+footer {
+          text-align: center;
+            background-color: #004;
+            color: white;
+     transform: scale(1.02);
+        }
+        @keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.fish-item img {
+    width: 150px;
+    height: auto;
+    border-radius: 20px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+        
+
+</style>
+</head>
+<body>
+   <nav style="background-color: #00796b; padding: 10px;">
+    <ul style="list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; gap: 30px;">
+        <li><a href="#home" style="color: white; text-decoration: none; font-weight: bold;">Home</a></li>
+        <li><a href="#products" style="color: white; text-decoration: none; font-weight: bold;">Products</a></li>
+        <li><a href="#about" style="color: white; text-decoration: none; font-weight: bold;">About</a></li>
+        <li><a href="#contact" style="color: white; text-decoration: none; font-weight: bold;">Contact</a></li>
+    </ul>
+</nav>
+
+    <header>
+        <h1>AQUARIUM STORE</h1>
+        <p>Your one-stop shop for aquariums and fish accessories</p>
+    </header>
+
+    <div class="container">
+        <h2>FISH</h2>
+        <div class="fish-list">
+            <div class="fish-item">
+                <h3>Glass Aquarium</h3>
+                <img src="./download (5).jpg" alt="Glass Aquarium">
+                <p>Perfect starter aquarium with glass cover and filter.</p>
+                <p class="price">$49.99</p>
+                <button class="add-to-cart-btn" onclick=" location.href='program2.html'">Add to Cart</button>
+            </div>
+<div class="fish-item">
+                <h3>Betta Starter Kit</h3>
+                <img src="images (3).jpg" alt="Fish Gravel">
+                <p>Colorful gravel to enhance your fish tank environment.</p>
+                 <p class="price">$290.99</p>
+                 <button class="add-to-cart-btn"onclick=" location.href='program2.html'" >Add to Cart</button>
+            </div>
+
+            <div class="fish-item">
+                <h3>LED Moonlight Strip</h3>
+                <img src="images (4).jpg" alt="LED Aquarium Light">
+                <p>Energy-efficient LED light strip for clear tank visibility.</p>
+                <p class="price">$300.99</p>
+                <button class="add-to-cart-btn" onclick=" location.href='program2.html'">Add to Cart</button>
+            </div>
+             <div class="fish-item">
+        <h3>Aquarium Filter</h3>
+        <img src="./image (6).jpg" alt="Aquarium Filter">
+        <p>Silent filter system to keep your aquarium clean and fresh.</p>
+        <p class="price">$240.99</p>
+        <button class="add-to-cart-btn" onclick=" location.href='program2.html'">Add to Cart</button>
+    </div>
+    <div class="fish-item">
+        <h3>Shrimp Filter</h3>
+        <img src="./images (5).jpg" alt="Shrimp Filter">
+        <p>Adjustable heater for tropical and freshwater tanks.</p>
+        <p class="price">$350.99</p>
+        <button class="add-to-cart-btn" onclick=" location.href='program2.html'">Add to Cart</button>
+    </div>
+    <div class="fish-item">
+        <h3>Golden Fish</h3>
+        <img src="./images (67).jpg" alt="Golden fish">
+        <p>High-quality fish food for all types of aquarium fish.</p>
+        <p class="price">$200.99</p>
+        <button class="add-to-cart-btn" onclick=" location.href='program2.html'">Add to Cart</button>
+        <a href=" "></a>
+    </div>
+        </div>
+    </div>
+     <footer>
+        <div class="footer-content">
+            <h3>About Aquarium Store</h3>
+            <p>
+                At Aquarium Store, we are passionate about aquatic life. Whether you're a beginner or a seasoned aquarist, 
+                we offer the best products to create a thriving underwater world.
+            </p>
+            <p><strong>Contact:</strong> support@aquariumstore.com | +1 (800) 123-4567</p>
+            <p><strong>Location:</strong> 123 Ocean Drive, Coral Bay, FL 33001</p>
+            <p><strong>Open Hours:</strong> Mon - Sat: 9:00 AM – 7:00 PM</p>
+            <p><strong>Follow us:</strong> 
+                <a href="#">Facebook</a> | 
+                <a href="#">Instagram</a> | 
+                <a href="#">Twitter</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
+        
